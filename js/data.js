@@ -562,4 +562,4 @@ const movies = [
     
     ];
 
-    console.log(movies);
+    
