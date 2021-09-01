@@ -9,26 +9,26 @@ const addMoviesToDom = movies => {
     const addListElement = movies.map(movie => {
     //li element maken met tijdelijke textNode erin, later img/poster
         const newLi = document.createElement("li");
-        // const textNode = document.createTextNode(movie.Title);
+        // const textNode = document.createTextNode(movie.Title); 
         // newLi.appendChild(textNode);
         // newLi.appendChild(textNode);
+        const link = document.createElement("a");
+        link.target = "_blank";
+        link.href = `https://www.imdb.com/title/${movie.imdbID}`;
         const img = document.createElement("img");
         img.src = movie.Poster;
-        newLi.appendChild(img);
+        link.appendChild(img);
+        newLi.appendChild(link);
         // console.log(newLi);
-        // movieList.appendChild(newLi);
         return newLi;
     });
         addListElement.forEach(newLi => movieList.appendChild(newLi));
 };
-// addMoviesToDom(movies);
+addMoviesToDom(movies);
 
-console.log(movieList); //ul met alle li en titels!!
-
-
+// console.log(movieList); ul met alle li en titels!!
 
 const radiobuttons = document.getElementsByName("category");
-console.log(radiobuttons);
 
 radiobuttons.forEach((btn) => btn.addEventListener("change", e => handleOnChangeEvent(e)));
 
@@ -45,29 +45,41 @@ const handleOnChangeEvent = (e => {
     switch (value) {
         case "latest":
             addMoviesToDom(filterLatestMovies);
-            console.log(`hey, ik ben ${value} film".`);
+            // console.log(`hey, ik ben ${value} film".`);
             break;
         case "avengers":
             addMoviesToDom(filterMovies);
-            console.log(`hey, ik ben ${value} film".`);
+            // console.log(`hey, ik ben ${value} film".`);
             break;
         case "x-men":
             addMoviesToDom(filterMovies);
-            console.log(`hey, ik ben ${value} film".`);
+            // console.log(`hey, ik ben ${value} film".`);
             break;
         case "princess":
             addMoviesToDom(filterMovies);
-            console.log(`hey, ik ben ${value} film".`);
+            // console.log(`hey, ik ben ${value} film".`);
             break;
         case "batman":
             addMoviesToDom(filterMovies);
-            console.log(`hey, ik ben ${value} film".`);
+            // console.log(`hey, ik ben ${value} film".`);
             break;
         default:
-            addMoviesToDom(movies);
-            break;
     };
     
 });
 
-addMoviesToDom(movies);
+//searchField, input value en movie.Title toLowerCase om te vergelijken
+addSearchMovieToDom = (searchMovieTitle) => {
+    const filterSearchMovie = movies.filter(movie => 
+        movie.Title.toLowerCase().includes(searchMovieTitle.toLowerCase()));
+    addMoviesToDom(filterSearchMovie);
+};
+
+//enter keyup toevoegen, searchField.value gebruiken
+const searchField = document.getElementById("searchField");
+searchField.addEventListener("keyup", e => {
+    if (e.code === "Enter") {
+        addSearchMovieToDom(searchField.value);
+    } return;
+});
+
