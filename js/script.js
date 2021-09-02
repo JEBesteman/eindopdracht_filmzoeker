@@ -66,7 +66,6 @@ const handleOnChangeEvent = (e => {
             addMoviesToDom(movies);
             break;
     };
-    
 });
 
 //searchField, input value en movie.Title toLowerCase om te vergelijken
