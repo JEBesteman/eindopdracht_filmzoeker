@@ -7,7 +7,6 @@ const addMoviesToDom = movies => {
         movieList.removeChild(movieList.firstChild); //verwijderd vorige lijst helemaal
     }
     const addListElement = movies.map(movie => {
-    //li element maken met tijdelijke textNode erin, later img/poster
         const newLi = document.createElement("li");
         // const textNode = document.createTextNode(movie.Title); 
         // newLi.appendChild(textNode);
@@ -19,7 +18,7 @@ const addMoviesToDom = movies => {
         img.src = movie.Poster;
         link.appendChild(img);
         newLi.appendChild(link);
-        // console.log(newLi);
+
         return newLi;
     });
         addListElement.forEach(newLi => movieList.appendChild(newLi));
@@ -38,7 +37,7 @@ const handleOnChangeEvent = (e => {
     // console.log(value); klopt!
     const filterMovies = movies.filter(movie => movie.Title.toLowerCase().includes(`${value}`));
     console.log(filterMovies);
-    //functie latest movies --> >= 2014
+    
     const filterLatestMovies = movies.filter(movie => movie.Year >= 2014);
     console.log(filterLatestMovies);
     
@@ -64,6 +63,8 @@ const handleOnChangeEvent = (e => {
             // console.log(`hey, ik ben ${value} film".`);
             break;
         default:
+            addMoviesToDom(movies);
+            break;
     };
     
 });
@@ -73,6 +74,7 @@ addSearchMovieToDom = (searchMovieTitle) => {
     const filterSearchMovie = movies.filter(movie => 
         movie.Title.toLowerCase().includes(searchMovieTitle.toLowerCase()));
     addMoviesToDom(filterSearchMovie);
+    searchField.value = "";
 };
 
 //enter keyup toevoegen, searchField.value gebruiken

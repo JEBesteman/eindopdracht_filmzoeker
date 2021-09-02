@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>Filmzoeker</title>
     <script defer type="text/javascript" src="./js/data.js"></script>
     <script defer type="text/javascript" src="./js/script.js"></script>
+    <title>Filmzoeker</title>
 </head>
 
 <body>
@@ -16,25 +20,34 @@
     </header>
 
     <nav>
-        <div>
-            <input type="radio" id="latest" name="category" value="latest">
-            <label for="latest">Nieuwste films</label>
-            <input type="radio" id="avengers" name="category" value="avengers">
-            <label for="avengers">Avengers films</label>
-            <input type="radio" id="x-men" name="category" value="x-men">
-            <label for="x-men">X-Men films</label>
-            <input type="radio" id="princess" name="category" value="princess">
-            <label for="princess">Princess films</label>
-            <input type="radio" id="batman" name="category" value="batman">
-            <label for="batman">Batman films</label>
-        </div>
-
-        <div>
-            <input type="text" id="searchField" placeholder="Zoek film + enter">
-        </div>
+        <ul>
+            <li>
+                <input type="radio" id="latest" name="category" value="latest">
+                <label for="latest">Nieuwste films</label>
+            </li>
+            <li>
+                <input type="radio" id="avengers" name="category" value="avengers">
+                <label for="avengers">Avengers films</label>
+            </li>
+            <li>
+                <input type="radio" id="x-men" name="category" value="x-men">
+                <label for="x-men">X-Men films</label>
+            </li>
+            <li>
+                <input type="radio" id="princess" name="category" value="princess">
+                <label for="princess">Princess films</label>
+            </li>
+            <li>
+                <input type="radio" id="batman" name="category" value="batman">
+                <label for="batman">Batman films</label>
+            </li>
+            <li class="input">
+                <label for="SearchField">Search</label>
+                <input type="text" id="searchField" placeholder="Enter film">
+            </li>
+        </ul>
     </nav>
 
-    <!-- flex of grid -->
     <main id="container"> 
         <ul id="movie-list">
 
@@ -44,15 +57,8 @@
     </main>
 
     <footer>
-        <h2>Filmzoeker gemaakt door Jolanda Besteman 2021</h2>
+        <h4>Filmzoeker gemaakt door Jolanda Besteman 2021</h4>
     </footer>
-
-
-
-
-
-
-
     
 </body>
 </html>
