@@ -59,7 +59,7 @@ label {
 /* container section */
 #movie-list {
   display: flex;
-  justify-content: row;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
